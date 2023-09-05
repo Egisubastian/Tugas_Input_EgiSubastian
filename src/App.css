@@ -1,0 +1,66 @@
+.input-container {
+  text-align: center;
+}
+/* Dalam file CSS Anda */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-dots {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  text-align: center;
+  animation: spin 2s linear infinite; /* Menggunakan animasi spin */
+}
+
+.loading-dot {
+  width: 10px;
+  height: 10px;
+  background-color: hsl(122, 100%, 50%);
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 4px;
+  animation: bounce 2s infinite alternate; /* Animasi dot bouncing */
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.input-wrapper {
+  position: relative;
+  margin: 20px auto;
+  width: 300px;
+}
+
+.input-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: transform 0.2s, font-size 0.2s;
+  transform-origin: left bottom;
+  pointer-events: none;
+  font-size: 16px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px 0;
+  border: none;
+  border-bottom: 1px solid hwb(102 3% 7%);
+  outline: none;
+  font-size: 18px;
+}
+
+.input-wrapper.focused .input-label {
+  transform: translateY(-100%) scale(0.8);
+  font-size: 12px;
+}
